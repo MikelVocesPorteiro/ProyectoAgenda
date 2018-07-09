@@ -2,6 +2,7 @@ package com.example.ProyectoAgenda.dao.empleado;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,13 +17,11 @@ public class EmpleadoDAOImpl implements EmpleadoDAO {
 	@Override
 	public List<Empleado> list() {
 		System.out.println("--- EmpleadoDAOImpl --> list() --> INICIO");
-		Query query = sessionFactory.getCurrentSession().createQuery("from Empleado");
-		System.out.println("--antes de list");
-	    List<Empleado> empList = (List<Empleado>) query.list();
-		System.out.println("--antes de for");
-	    for (Empleado c : empList) {
-	        System.out.println(c);
-	    }
+		
+	    @SuppressWarnings("unchecked")
+		List<Empleado> empList = (List<Empleado>) sessionFactory.getCurrentSession()
+				.createCriteria(Empleado.class)
+				.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
 		System.out.println("--- EmpleadoDAOImpl --> list() --> FIN");
 		return empList;
 	}
