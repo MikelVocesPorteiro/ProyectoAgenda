@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+
+<spring:url value="resources/css/bootstrap.css" var="bootstrap" />
+<link href="${bootstrap}" rel="stylesheet" />
+<spring:url value="resources/css/custom.css" var="custom" />
+<link href="${styles}" rel="stylesheet" />
+</meta>
+<title>--- FORMULARIO DE USUARIOS ---</title>
+</head>
+<body>
+	<div align="center">
+		<div class="col-md-2">
+			<a href="/"> <img alt="Bootstrap Image Preview"
+				src="https://image.freepik.com/free-icon/home-symbol_318-49865.jpg"
+				width="30em"> </img>
+			</a>
+
+		</div>
+		<h1>FORMULARIO DE INSERTAR (add/edit)</h1>
+		<form th:action="@{/save}" th:object="${persona}" method="post">
+			<fieldset>
+				<tr>
+					<td>Nombre: <input type="text" th:field="*{nombre}"></input></td>
+				</tr>
+				<tr>
+					<td>Apellido 1: <input type="text" th:field="*{apellido1}"></input></td>
+				</tr>
+				<tr>
+					<td>Apellido 2: <input type="text" th:field="*{apellido2}"></input></td>
+				</tr>
+				<tr>
+					<td>DNI: <input type="text" th:field="*{dni}"></input></td>
+				</tr>
+				<!--   			<tr> -->
+				<!--   				<td>Fecha Nacimiento: <input type="text" th:field="*{fechaNacimiento}" ></input></td> -->
+				<!--   			</tr> -->
+				<input type="submit" />
+			</fieldset>
+
+		</form>
+
+	</div>
+
+</body>
+</html>

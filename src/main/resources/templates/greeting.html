@@ -1,0 +1,14 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h2>Con timi</h2>
+	<!-- <p th:text="'miiiiiiiiiheeeeeellloooo, ' + ${name} + '!'" /> -->
+	<ul th:each="nm : ${name}">
+    	<li th:text="${nm}"></li>	
+	</ul> 
+</body>
+</html>

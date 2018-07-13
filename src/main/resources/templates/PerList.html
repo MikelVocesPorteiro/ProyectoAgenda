@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+
+<title>SHULUCA COMPANY</title>
+
+<meta name="description"
+	content="Source code generated using layoutit.com"></meta>
+<meta name="author" content="LayoutIt!"></meta>
+
+<link href="../static/css/style.css" rel="stylesheet"></link>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+<style type="text/css">
+	body{
+		text-align: center;
+	}
+	
+	#return{
+		width: 100%;
+	}
+	
+	ul{
+		list-style-type: none;
+	}
+	#title{
+    	 margin: 55px 0px;
+	}
+	footer{
+		padding: 20px;
+	}
+	
+</style>
+</head>
+<body>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-2">
+				<a href="/"> <img id="return" alt="Bootstrap Image Preview"
+					src="https://image.freepik.com/free-icon/home-symbol_318-49865.jpg"
+					width="30em"> </img>
+				</a>
+			</div>
+			<div class="col-md-7" id="tittle">
+				<h3>
+					<strong>SHULUCA AGENDS COMPANY</strong>
+				</h3>
+			</div>
+			<div class="col-md-3">
+				<div class="dropdown">
+					<ul >
+						<li><a th:href="@{'/new'}">AÑADIR PERSONA</a></li>
+						<li><a th:href="@{'/categoria'}">LISTAR CATEGORIAS</a></li>
+						<li><a th:href="@{'/departamentos'}">LISTAR DEPARTAMENTOS</a></li>
+					</ul>
+
+
+					
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				
+			</div>
+		</div>
+		<!-- 		******** LISTA DE PERSONAS ********** -->
+		<div class="row">
+			<!-- each -->
+			<div class="col-md-4"  th:each="p : ${listPers}">
+				<div class="row">
+					<div class="col-md-12">
+						<img alt="Bootstrap Image Preview"
+							src="https://thumbs.dreamstime.com/b/user-icon-vector-male-person-symbol-profile-avatar-sign-glyph-pictogram-illustration-flat-color-104605522.jpg"
+							width="150em"></img>
+					</div>
+				</div>
+				<div class="row" th:text="${p.nombre} +  ${p.apellido1}"></div>
+				<div class="row">
+					<div class="col-md-6">
+						<a th:href="@{'/deletePer/' + ${p.idpersonas}}">Eliminar</a>
+					</div>
+					<div class="col-md-6">
+						<button type="button" class="btn btn-success"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 		******** LISTA DE CATEGORIAS ********** -->
+
+		<div class="row" th:each="cat : ${listacat}">
+			<!-- each -->
+			<div class="col-md-4">
+				<div class="row">
+					<div class="col-md-12">
+						<img alt="Bootstrap Image Preview"
+							src="https://www.layoutit.com/img/sports-q-c-140-140-3.jpg"></img>
+					</div>
+				</div>
+				<div class="row" th:text="${cat.nombre}"></div>
+				<div class="row">
+					<div class="col-md-6">
+						<a th:href="@{'/deleteCat/' + ${cat.idcategorias}}">Eliminar</a>
+					</div>
+					<div class="col-md-6">
+						<button type="button" class="btn btn-success"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		<div class="row" th:each="d : ${name}">
+			<!-- each -->
+			<div class="col-md-4">
+				<div class="row">
+					<div class="col-md-12">
+						<img alt="Bootstrap Image Preview"
+							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSOCvjGCcMB1EPBo0Fh05r8IqBcVUcpIUAQHuvIBMcxeslNh7FwIQ"></img>
+					</div>
+				</div>
+				<div class="row" th:text="${d.nombre}"></div>
+				<div class="row">
+					<div class="col-md-6">
+						<a th:href="@{'/deleteDep/' + ${d.iddepartamento}}">Eliminar</a>
+					</div>
+					<div class="col-md-6">
+						<button type="button" class="btn btn-success"></button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- cierre each -->
+		<footer class="row">
+			<div class="col-md-12">
+				<p>C/ANABEL SEGURA 11bis</p>
+				<p>28018 ALCOBENDAS, MADRID</p>
+				<p>TELF: 91 028 99 28</p>
+			</div>
+		</footer>
+	</div>
+
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/scripts.js"></script>
+</body>
+</html>
